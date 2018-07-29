@@ -13,6 +13,10 @@ public class SocketClientProxy {
 
 
     public  <T> T getProxy(Class<T> clazz){
+        // 加入这一段可以在磁盘中生成 代理类，让我们看到代理类的真面目
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
+
+
         ClassLoader classLoder = Thread.currentThread().getContextClassLoader();
         Class[] classInterfaceArr = new Class[]{StudentService.class, TeacherService.class};
 
