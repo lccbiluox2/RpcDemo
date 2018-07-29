@@ -1,7 +1,9 @@
 package Server;
 
 import service.Imp.StudentServiceImp;
+import service.Imp.TeacherServiceImpl;
 import service.StudentService;
+import service.TeacherService;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -27,6 +29,7 @@ public class Server {
                 Socket sock = serverSocket.accept();
                 ServerService service = new ServerService(sock);
                 service.registerService(StudentService.class, StudentServiceImp.class);
+                service.registerService(TeacherService.class, TeacherServiceImpl.class);
                 threadPool.execute(service);
             } catch (IOException e){
                 System.out.println(e.getMessage());

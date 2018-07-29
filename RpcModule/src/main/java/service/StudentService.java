@@ -1,8 +1,8 @@
 package service;
 
+import Entity.Book;
 import Entity.Student;
 
 public interface StudentService {
-    public Student getInfo();
-    public void print(Student stu);
+    public Book say(String studentName,String str);
 }
